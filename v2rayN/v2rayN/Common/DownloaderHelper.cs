@@ -17,7 +17,6 @@ namespace v2rayN
             }
 
             Uri uri = new(url);
-            //Authorization Header
             var headers = new WebHeaderCollection();
             if (!Utils.IsNullOrEmpty(uri.UserInfo))
             {
@@ -78,13 +77,6 @@ namespace v2rayN
             var hasValue = false;
             double maxSpeed = 0;
             using var downloader = new DownloadService(downloadOpt);
-            //downloader.DownloadStarted += (sender, value) =>
-            //{
-            //    if (progress != null)
-            //    {
-            //        progress.Report("Start download data...");
-            //    }
-            //};
             downloader.DownloadProgressChanged += (sender, value) =>
             {
                 TimeSpan ts = (DateTime.Now - totalDatetime);
@@ -110,7 +102,6 @@ namespace v2rayN
                     }
                 }
             };
-            //progress.Report("......");
             using var cts = new CancellationTokenSource();
             cts.CancelAfter(timeout * 1000);
             using var stream = await downloader.DownloadFileTaskAsync(address: url, cts.Token);
