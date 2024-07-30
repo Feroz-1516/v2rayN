@@ -1,13 +1,8 @@
-﻿using System.Diagnostics;
+using System.Diagnostics;
 using System.Runtime.InteropServices;
 
 namespace v2rayN
 {
-    /*
-     * See:
-     * http://stackoverflow.com/questions/6266820/working-example-of-createjobobject-setinformationjobobject-pinvoke-in-net
-     */
-
     public class Job : IDisposable
     {
         private IntPtr handle = IntPtr.Zero;
@@ -63,8 +58,6 @@ namespace v2rayN
             return AddProcess(Process.GetProcessById(processId).Handle);
         }
 
-        #region IDisposable
-
         private bool disposed;
 
         public void Dispose()
@@ -80,7 +73,6 @@ namespace v2rayN
 
             if (disposing)
             {
-                // no managed objects to free
             }
 
             if (handle != IntPtr.Zero)
@@ -95,10 +87,6 @@ namespace v2rayN
             Dispose(false);
         }
 
-        #endregion IDisposable
-
-        #region Interop
-
         [DllImport("kernel32.dll", CharSet = CharSet.Unicode)]
         private static extern IntPtr CreateJobObject(IntPtr a, string? lpName);
 
@@ -111,11 +99,7 @@ namespace v2rayN
         [DllImport("kernel32.dll", SetLastError = true)]
         [return: MarshalAs(UnmanagedType.Bool)]
         private static extern bool CloseHandle(IntPtr hObject);
-
-        #endregion Interop
     }
-
-    #region Helper classes
 
     [StructLayout(LayoutKind.Sequential)]
     internal struct IO_COUNTERS
@@ -171,6 +155,4 @@ namespace v2rayN
         SecurityLimitInformation = 5,
         GroupInformation = 11
     }
-
-    #endregion Helper classes
 }
