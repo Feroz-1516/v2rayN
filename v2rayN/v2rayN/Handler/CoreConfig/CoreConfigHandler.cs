@@ -5,9 +5,9 @@ using v2rayN.Resx;
 
 namespace v2rayN.Handler.CoreConfig
 {
-    /// <summary>
-    /// Core configuration file processing class
-    /// </summary>
+    
+    
+    
     internal class CoreConfigHandler
     {
         public static int GenerateClientConfig(ProfileItem node, string? fileName, out string msg, out string content)
@@ -94,7 +94,7 @@ namespace v2rayN.Handler.CoreConfig
 
                 if (File.Exists(fileName))
                 {
-                    File.SetAttributes(fileName, FileAttributes.Normal); //If the file has a read-only attribute, direct deletion will fail
+                    File.SetAttributes(fileName, FileAttributes.Normal); 
                     File.Delete(fileName);
                 }
 
@@ -109,9 +109,9 @@ namespace v2rayN.Handler.CoreConfig
                     return -1;
                 }
                 File.Copy(addressFileName, fileName);
-                File.SetAttributes(fileName, FileAttributes.Normal); //Copy will keep the attributes of addressFileName, so we need to add write permissions to fileName just in case of addressFileName is a read-only file.
+                File.SetAttributes(fileName, FileAttributes.Normal); 
 
-                //check again
+                
                 if (!File.Exists(fileName))
                 {
                     msg = ResUI.FailedGenDefaultConfiguration;

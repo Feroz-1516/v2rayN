@@ -28,7 +28,7 @@ namespace v2rayN.Handler.Statistics
 
             try
             {
-                url = $"ws://{Global.Loopback}:{LazyConfig.Instance.StatePort2}/traffic";
+                url = $"ws:
 
                 if (webSocket == null)
                 {

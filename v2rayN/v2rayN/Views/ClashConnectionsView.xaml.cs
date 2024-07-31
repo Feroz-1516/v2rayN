@@ -4,9 +4,9 @@ using v2rayN.ViewModels;
 
 namespace v2rayN.Views
 {
-    /// <summary>
-    /// Interaction logic for ConnectionsView.xaml
-    /// </summary>
+    
+    
+    
     public partial class ClashConnectionsView
     {
         public ClashConnectionsView()

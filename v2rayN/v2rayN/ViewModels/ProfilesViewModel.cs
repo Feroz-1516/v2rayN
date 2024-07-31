@@ -65,7 +65,7 @@ namespace v2rayN.ViewModels
 
         #region Menu
 
-        //servers delete
+        
         public ReactiveCommand<Unit, Unit> EditServerCmd { get; }
 
         public ReactiveCommand<Unit, Unit> RemoveServerCmd { get; }
@@ -76,14 +76,14 @@ namespace v2rayN.ViewModels
         public ReactiveCommand<Unit, Unit> SetDefaultMultipleServerCmd { get; }
         public ReactiveCommand<Unit, Unit> SetDefaultLoadBalanceServerCmd { get; }
 
-        //servers move
+        
         public ReactiveCommand<Unit, Unit> MoveTopCmd { get; }
 
         public ReactiveCommand<Unit, Unit> MoveUpCmd { get; }
         public ReactiveCommand<Unit, Unit> MoveDownCmd { get; }
         public ReactiveCommand<Unit, Unit> MoveBottomCmd { get; }
 
-        //servers ping
+        
         public ReactiveCommand<Unit, Unit> MixedTestServerCmd { get; }
 
         public ReactiveCommand<Unit, Unit> TcpingServerCmd { get; }
@@ -91,7 +91,7 @@ namespace v2rayN.ViewModels
         public ReactiveCommand<Unit, Unit> SpeedServerCmd { get; }
         public ReactiveCommand<Unit, Unit> SortServerResultCmd { get; }
 
-        //servers export
+        
         public ReactiveCommand<Unit, Unit> Export2ClientConfigCmd { get; }
 
         public ReactiveCommand<Unit, Unit> Export2ShareUrlCmd { get; }
@@ -144,7 +144,7 @@ namespace v2rayN.ViewModels
               y => y != null && _serverFilter != y)
                   .Subscribe(c => ServerFilterChanged(c));
 
-            //servers delete
+            
             EditServerCmd = ReactiveCommand.Create(() =>
             {
                 EditServer(false, EConfigType.Custom);
@@ -178,7 +178,7 @@ namespace v2rayN.ViewModels
                 SetDefaultMultipleServer(ECoreType.Xray);
             }, canEditRemove);
 
-            //servers move
+            
             MoveTopCmd = ReactiveCommand.Create(() =>
             {
                 MoveServer(EMove.Top);
@@ -196,7 +196,7 @@ namespace v2rayN.ViewModels
                 MoveServer(EMove.Bottom);
             }, canEditRemove);
 
-            //servers ping
+            
             MixedTestServerCmd = ReactiveCommand.Create(() =>
             {
                 ServerSpeedtest(ESpeedActionType.Mixedtest);
@@ -217,7 +217,7 @@ namespace v2rayN.ViewModels
             {
                 SortServer(EServerColName.delayVal.ToString());
             });
-            //servers export
+            
             Export2ClientConfigCmd = ReactiveCommand.Create(() =>
             {
                 Export2ClientConfig();
@@ -227,7 +227,7 @@ namespace v2rayN.ViewModels
                 Export2ShareUrl();
             }, canEditRemove);
 
-            //Subscription
+            
             AddSubCmd = ReactiveCommand.Create(() =>
             {
                 EditSub(true);
@@ -657,7 +657,7 @@ namespace v2rayN.ViewModels
             RefreshServers();
         }
 
-        //move server
+        
         private void MoveToGroup(bool c)
         {
             if (!c)
@@ -675,7 +675,7 @@ namespace v2rayN.ViewModels
 
             RefreshServers();
             SelectedMoveToGroup = new();
-            //Reload();
+            
         }
 
         public void MoveServer(EMove eMove)
@@ -720,7 +720,7 @@ namespace v2rayN.ViewModels
             {
                 return;
             }
-            //ClearTestResult();
+            
             var coreHandler = Locator.Current.GetService<CoreHandler>();
             if (coreHandler != null)
             {

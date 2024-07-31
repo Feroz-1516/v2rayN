@@ -223,13 +223,13 @@ namespace v2rayN.ViewModels
 
         private void RoutingBasicImportRules()
         {
-            //Extra to bypass the mainland
+            
             ProxyDomain = "geosite:google";
             DirectDomain = "geosite:cn";
             DirectIP = "geoip:private,geoip:cn";
             BlockDomain = "geosite:category-ads-all";
 
-            //_noticeHandler?.Enqueue(ResUI.OperationSuccess);
+            
             _noticeHandler?.Enqueue(ResUI.OperationSuccess);
         }
 

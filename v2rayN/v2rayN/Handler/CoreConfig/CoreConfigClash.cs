@@ -6,9 +6,9 @@ using v2rayN.Resx;
 
 namespace v2rayN.Handler.CoreConfig
 {
-    /// <summary>
-    /// Core configuration file processing class
-    /// </summary>
+    
+    
+    
     internal class CoreConfigClash
     {
         private Config _config;
@@ -18,13 +18,13 @@ namespace v2rayN.Handler.CoreConfig
             _config = config;
         }
 
-        /// <summary>
-        /// 生成配置文件
-        /// </summary>
-        /// <param name="node"></param>
-        /// <param name="fileName"></param>
-        /// <param name="msg"></param>
-        /// <returns></returns>
+        
+        
+        
+        
+        
+        
+        
         public int GenerateClientCustomConfig(ProfileItem node, string? fileName, out string msg)
         {
             if (node == null || fileName is null)
@@ -77,16 +77,16 @@ namespace v2rayN.Handler.CoreConfig
                     return -1;
                 }
 
-                //port
+                
                 fileContent["port"] = LazyConfig.Instance.GetLocalPort(EInboundProtocol.http);
-                //socks-port
+                
                 fileContent["socks-port"] = LazyConfig.Instance.GetLocalPort(EInboundProtocol.socks);
-                //log-level
+                
                 fileContent["log-level"] = GetLogLevel(_config.coreBasicItem.loglevel);
 
-                //external-controller
+                
                 fileContent["external-controller"] = $"{Global.Loopback}:{LazyConfig.Instance.StatePort2}";
-                //allow-lan
+                
                 if (_config.inbound[0].allowLANConn)
                 {
                     fileContent["allow-lan"] = "true";
@@ -97,10 +97,10 @@ namespace v2rayN.Handler.CoreConfig
                     fileContent["allow-lan"] = "false";
                 }
 
-                //ipv6
+                
                 fileContent["ipv6"] = _config.clashUIItem.enableIPv6;
 
-                //mode
+                
                 if (!fileContent.ContainsKey("mode"))
                 {
                     fileContent["mode"] = ERuleMode.Rule.ToString().ToLower();
@@ -113,7 +113,7 @@ namespace v2rayN.Handler.CoreConfig
                     }
                 }
 
-                //enable tun mode
+                
                 if (_config.tunModeItem.enableTun)
                 {
                     string tun = Utils.GetEmbedText(Global.ClashTunYaml);
@@ -125,7 +125,7 @@ namespace v2rayN.Handler.CoreConfig
                     }
                 }
 
-                //Mixin
+                
                 try
                 {
                     MixinContent(fileContent, node);
@@ -137,7 +137,7 @@ namespace v2rayN.Handler.CoreConfig
 
                 var txtFileNew = YamlUtils.ToYaml(fileContent).Replace(tagYamlStr2, tagYamlStr3);
                 File.WriteAllText(fileName, txtFileNew);
-                //check again
+                
                 if (!File.Exists(fileName))
                 {
                     msg = ResUI.FailedReadConfiguration + "2";
@@ -159,10 +159,10 @@ namespace v2rayN.Handler.CoreConfig
 
         private void MixinContent(Dictionary<string, object> fileContent, ProfileItem node)
         {
-            //if (!_config.clashUIItem.enableMixinContent)
-            //{
-            //    return;
-            //}
+            
+            
+            
+            
 
             var path = Utils.GetConfigPath(Global.ClashMixinConfigFileName);
             if (!File.Exists(path))

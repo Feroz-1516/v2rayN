@@ -145,7 +145,7 @@ namespace v2rayN.ViewModels
             }
             if (lstModel.Count <= 0) { return; }
 
-            //sort
+            
             switch (SortingSelected)
             {
                 case 0:

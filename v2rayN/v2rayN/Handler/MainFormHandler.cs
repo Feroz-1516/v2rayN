@@ -24,14 +24,14 @@ namespace v2rayN.Handler
             {
                 int index = (int)config.systemProxyItem.sysProxyType;
 
-                //Load from routing setting
+                
                 var createdIcon = GetNotifyIcon4Routing(config);
                 if (createdIcon != null)
                 {
                     return createdIcon;
                 }
 
-                //Load from local file
+                
                 var fileName = Utils.GetPath($"NotifyIcon{index + 1}.ico");
                 if (File.Exists(fileName))
                 {
@@ -43,7 +43,7 @@ namespace v2rayN.Handler
                     1 => Properties.Resources.NotifyIcon2,
                     2 => Properties.Resources.NotifyIcon3,
                     3 => Properties.Resources.NotifyIcon2,
-                    _ => Properties.Resources.NotifyIcon1, // default
+                    _ => Properties.Resources.NotifyIcon1, 
                 };
             }
             catch (Exception ex)
@@ -71,7 +71,7 @@ namespace v2rayN.Handler
                     index = 3;
                     break;
             }
-            return BitmapFrame.Create(new Uri($"pack://application:,,,/Resources/NotifyIcon{index}.ico", UriKind.RelativeOrAbsolute));
+            return BitmapFrame.Create(new Uri($"pack:
         }
 
         private Icon? GetNotifyIcon4Routing(Config config)
@@ -104,7 +104,7 @@ namespace v2rayN.Handler
                 SolidBrush drawBrush = new(color);
 
                 graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
-                //graphics.FillRectangle(drawBrush, new Rectangle(0, 0, width, height));
+                
                 graphics.DrawImage(new Bitmap(item.customIcon), 0, 0, width, height);
                 graphics.FillEllipse(drawBrush, width / 2, width / 2, width / 2, width / 2);
 

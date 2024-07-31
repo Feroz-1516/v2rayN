@@ -47,7 +47,7 @@ namespace v2rayUpgrade
             }
             catch (Exception ex)
             {
-                // Access may be denied without admin right. The user may not be an administrator.
+                
                 ShowWarn("Failed to close v2rayN(关闭v2rayN失败).\n" +
                     "Close it manually, or the upgrade may fail.(请手动关闭正在运行的v2rayN，否则可能升级失败。\n\n" + ex.StackTrace);
             }

@@ -7,12 +7,12 @@ namespace v2rayN.Common
     {
         #region YAML
 
-        /// <summary>
-        /// 反序列化成对象
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="str"></param>
-        /// <returns></returns>
+        
+        
+        
+        
+        
+        
         public static T FromYaml<T>(string str)
         {
             var deserializer = new DeserializerBuilder()
@@ -30,11 +30,11 @@ namespace v2rayN.Common
             }
         }
 
-        /// <summary>
-        /// 序列化
-        /// </summary>
-        /// <param name="obj"></param>
-        /// <returns></returns>
+        
+        
+        
+        
+        
         public static string ToYaml(Object obj)
         {
             var serializer = new SerializerBuilder()

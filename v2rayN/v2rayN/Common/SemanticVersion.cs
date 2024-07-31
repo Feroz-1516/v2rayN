@@ -43,7 +43,7 @@
                 this.major = 0;
                 this.minor = 0;
                 this.patch = 0;
-                //this.version = "0.0.0";
+          
             }
         }
 
@@ -64,10 +64,7 @@
             return this.major.GetHashCode() ^ this.minor.GetHashCode() ^ this.patch.GetHashCode();
         }
 
-        /// <summary>
-        /// Use ToVersionString(string? prefix) instead if possible.
-        /// </summary>
-        /// <returns>major.minor.patch</returns>
+    
         public override string ToString()
         {
             return this.version;

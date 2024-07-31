@@ -8,9 +8,9 @@ using v2rayN.Resx;
 
 namespace v2rayN.Handler
 {
-    /// <summary>
-    /// Core process processing class
-    /// </summary>
+    
+    
+    
     internal class CoreHandler
     {
         private Config _config;
@@ -54,23 +54,23 @@ namespace v2rayN.Handler
 
                 CoreStart(node);
 
-                //In tun mode, do a delay check and restart the core
-                //if (_config.tunModeItem.enableTun)
-                //{
-                //    Observable.Range(1, 1)
-                //    .Delay(TimeSpan.FromSeconds(15))
-                //    .Subscribe(x =>
-                //    {
-                //        {
-                //            if (_process == null || _process.HasExited)
-                //            {
-                //                CoreStart(node);
-                //                ShowMsg(false, "Tun mode restart the core once");
-                //                Logging.SaveLog("Tun mode restart the core once");
-                //            }
-                //        }
-                //    });
-                //}
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
             }
         }
 
@@ -184,15 +184,15 @@ namespace v2rayN.Handler
             ShowMsg(false, $"{Environment.OSVersion} - {(Environment.Is64BitOperatingSystem ? 64 : 32)}");
             ShowMsg(false, string.Format(ResUI.StartService, DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")));
 
-            //ECoreType coreType;
-            //if (node.configType != EConfigType.Custom && _config.tunModeItem.enableTun)
-            //{
-            //    coreType = ECoreType.sing_box;
-            //}
-            //else
-            //{
-            //    coreType = LazyConfig.Instance.GetCoreType(node, node.configType);
-            //}
+            
+            
+            
+            
+            
+            
+            
+            
+            
             var coreType = LazyConfig.Instance.GetCoreType(node, node.configType);
             _config.runningCoreType = coreType;
             var coreInfo = LazyConfig.Instance.GetCoreInfo(coreType);
@@ -205,7 +205,7 @@ namespace v2rayN.Handler
             }
             _process = proc;
 
-            //start a pre service
+            
             if (_process != null && !_process.HasExited)
             {
                 ProfileItem? itemSocks = null;
@@ -217,7 +217,7 @@ namespace v2rayN.Handler
                         coreType = preCoreType,
                         configType = EConfigType.Socks,
                         address = Global.Loopback,
-                        sni = node.address, //Tun2SocksAddress
+                        sni = node.address, 
                         port = LazyConfig.Instance.GetLocalPort(EInboundProtocol.socks)
                     };
                 }

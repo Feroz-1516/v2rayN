@@ -6,9 +6,7 @@ using v2rayN.Models;
 
 namespace v2rayN
 {
-    /// <summary>
-    /// Interaction logic for App.xaml
-    /// </summary>
+
     public partial class App : Application
     {
         public static EventWaitHandle ProgramStarted;
@@ -16,16 +14,11 @@ namespace v2rayN
 
         public App()
         {
-            // Locator.CurrentMutable.RegisterViewsForViewModels(Assembly.GetCallingAssembly());
             this.DispatcherUnhandledException += App_DispatcherUnhandledException;
             AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
             TaskScheduler.UnobservedTaskException += TaskScheduler_UnobservedTaskException;
         }
 
-        /// <summary>
-        /// 只打开一个进程
-        /// </summary>
-        /// <param name="e"></param>
         protected override void OnStartup(StartupEventArgs e)
         {
             var exePathKey = Utils.GetMD5(Utils.GetExePath());
@@ -60,7 +53,6 @@ namespace v2rayN
                 return;
             }
 
-            //Under Win10
             if (Environment.OSVersion.Version.Major < 10)
             {
                 Environment.SetEnvironmentVariable("DOTNET_EnableWriteXorExecute", "0", EnvironmentVariableTarget.User);

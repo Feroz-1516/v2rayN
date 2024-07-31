@@ -94,7 +94,7 @@ namespace v2rayN.Handler.Statistics
                 foreach (Stat stat in source)
                 {
                     string name = stat.Name;
-                    long value = stat.Value / 1024;    //KByte
+                    long value = stat.Value / 1024;    
                     string[] nStr = name.Split(">>>".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
                     string type = "";
 

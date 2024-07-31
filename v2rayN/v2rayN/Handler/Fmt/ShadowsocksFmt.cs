@@ -37,20 +37,20 @@ namespace v2rayN.Handler.Fmt
             {
                 remark = "#" + Utils.UrlEncode(item.remarks);
             }
-            //url = string.Format("{0}:{1}@{2}:{3}",
-            //    item.security,
-            //    item.id,
-            //    item.address,
-            //    item.port);
-            //url = Utile.Base64Encode(url);
-            //new Sip002
+            
+            
+            
+            
+            
+            
+            
             var pw = Utils.Base64Encode($"{item.security}:{item.id}");
             url = $"{pw}@{GetIpv6(item.address)}:{item.port}";
             url = $"{Global.ProtocolShares[EConfigType.Shadowsocks]}{url}{remark}";
             return url;
         }
 
-        private static readonly Regex UrlFinder = new(@"ss://(?<base64>[A-Za-z0-9+-/=_]+)(?:#(?<tag>\S+))?", RegexOptions.IgnoreCase | RegexOptions.Compiled);
+        private static readonly Regex UrlFinder = new(@"ss:
         private static readonly Regex DetailsParser = new(@"^((?<method>.+?):(?<password>.*)@(?<hostname>.+?):(?<port>\d+?))$", RegexOptions.IgnoreCase | RegexOptions.Compiled);
 
         private static ProfileItem? ResolveSSLegacy(string result)
@@ -102,7 +102,7 @@ namespace v2rayN.Handler.Fmt
                 port = parsedUrl.Port,
             };
             string rawUserInfo = parsedUrl.GetComponents(UriComponents.UserInfo, UriFormat.UriEscaped);
-            //2022-blake3
+            
             if (rawUserInfo.Contains(':'))
             {
                 string[] userInfoParts = rawUserInfo.Split(new[] { ':' }, 2);
@@ -115,7 +115,7 @@ namespace v2rayN.Handler.Fmt
             }
             else
             {
-                // parse base64 UserInfo
+                
                 string userInfo = Utils.Base64Decode(rawUserInfo);
                 string[] userInfoParts = userInfo.Split(new[] { ':' }, 2);
                 if (userInfoParts.Length != 2)
@@ -129,7 +129,7 @@ namespace v2rayN.Handler.Fmt
             var queryParameters = Utils.ParseQueryString(parsedUrl.Query);
             if (queryParameters["plugin"] != null)
             {
-                //obfs-host exists
+                
                 var obfsHost = queryParameters["plugin"]?.Split(';').FirstOrDefault(t => t.Contains("obfs-host"));
                 if (queryParameters["plugin"].Contains("obfs=http") && !Utils.IsNullOrEmpty(obfsHost))
                 {
@@ -149,7 +149,7 @@ namespace v2rayN.Handler.Fmt
 
         public static List<ProfileItem>? ResolveSip008(string result)
         {
-            //SsSIP008
+            
             var lstSsServer = JsonUtils.Deserialize<List<SsServer>>(result);
             if (lstSsServer?.Count <= 0)
             {

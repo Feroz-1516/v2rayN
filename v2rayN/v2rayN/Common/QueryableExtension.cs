@@ -28,12 +28,12 @@ namespace v2rayN
         }
 
         public static IOrderedQueryable<T> OrderByInternal<T, TProp>(IQueryable<T> query, PropertyInfo memberProperty)
-        {//public
+        {
             return query.OrderBy(_GetLambda<T, TProp>(memberProperty));
         }
 
         public static IOrderedQueryable<T> OrderByDescendingInternal<T, TProp>(IQueryable<T> query, PropertyInfo memberProperty)
-        {//public
+        {
             return query.OrderByDescending(_GetLambda<T, TProp>(memberProperty));
         }
 

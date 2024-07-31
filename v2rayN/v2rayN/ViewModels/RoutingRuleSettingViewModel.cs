@@ -211,7 +211,7 @@ namespace v2rayN.ViewModels
             if (lst.Count > 0)
             {
                 Utils.SetClipboardData(JsonUtils.Serialize(lst));
-                //_noticeHandler?.Enqueue(ResUI.OperationSuccess"));
+                
             }
         }
 

@@ -57,7 +57,7 @@ namespace v2rayN.ViewModels
 
         #region Menu
 
-        //servers
+        
         public ReactiveCommand<Unit, Unit> AddVmessServerCmd { get; }
 
         public ReactiveCommand<Unit, Unit> AddVlessServerCmd { get; }
@@ -72,7 +72,7 @@ namespace v2rayN.ViewModels
         public ReactiveCommand<Unit, Unit> AddServerViaClipboardCmd { get; }
         public ReactiveCommand<Unit, Unit> AddServerViaScanCmd { get; }
 
-        //Subscription
+        
         public ReactiveCommand<Unit, Unit> SubSettingCmd { get; }
 
         public ReactiveCommand<Unit, Unit> SubUpdateCmd { get; }
@@ -80,7 +80,7 @@ namespace v2rayN.ViewModels
         public ReactiveCommand<Unit, Unit> SubGroupUpdateCmd { get; }
         public ReactiveCommand<Unit, Unit> SubGroupUpdateViaProxyCmd { get; }
 
-        //Setting
+        
         public ReactiveCommand<Unit, Unit> OptionSettingCmd { get; }
 
         public ReactiveCommand<Unit, Unit> RoutingSettingCmd { get; }
@@ -90,7 +90,7 @@ namespace v2rayN.ViewModels
         public ReactiveCommand<Unit, Unit> ClearServerStatisticsCmd { get; }
         public ReactiveCommand<Unit, Unit> OpenTheFileLocationCmd { get; }
 
-        //CheckUpdate
+        
         public ReactiveCommand<Unit, Unit> CheckUpdateNCmd { get; }
 
         public ReactiveCommand<Unit, Unit> CheckUpdateXrayCoreCmd { get; }
@@ -245,7 +245,7 @@ namespace v2rayN.ViewModels
                y => y == true)
                   .Subscribe(c => DoEnableTun(c));
 
-            //servers
+            
             AddVmessServerCmd = ReactiveCommand.Create(() =>
             {
                 AddServer(true, EConfigType.VMess);
@@ -295,7 +295,7 @@ namespace v2rayN.ViewModels
                 return ScanScreenTaskAsync();
             });
 
-            //Subscription
+            
             SubSettingCmd = ReactiveCommand.Create(() =>
             {
                 SubSetting();
@@ -318,7 +318,7 @@ namespace v2rayN.ViewModels
                 UpdateSubscriptionProcess(_config.subIndexId, true);
             });
 
-            //Setting
+            
             OptionSettingCmd = ReactiveCommand.Create(() =>
             {
                 OptionSetting();
@@ -352,7 +352,7 @@ namespace v2rayN.ViewModels
                 Utils.ProcessStart("Explorer", $"/select,{Utils.GetConfigPath()}");
             });
 
-            //CheckUpdate
+            
             CheckUpdateNCmd = ReactiveCommand.Create(() =>
             {
                 CheckUpdateN();
@@ -384,7 +384,7 @@ namespace v2rayN.ViewModels
                 ShowHideWindow(null);
             });
 
-            //System proxy
+            
             SystemProxyClearCmd = ReactiveCommand.Create(() =>
             {
                 SetListenerType(ESysProxyType.ForcedClear);
@@ -426,7 +426,7 @@ namespace v2rayN.ViewModels
             MainFormHandler.Instance.RegisterGlobalHotkey(_config, OnHotkeyHandler, UpdateTaskHandler);
 
             RefreshRoutingsMenu();
-            //RefreshServers();
+            
 
             Reload();
             ChangeSystemProxyStatus(_config.systemProxyItem.sysProxyType, true);
@@ -574,7 +574,7 @@ namespace v2rayN.ViewModels
             {
                 RefreshServersMenu();
 
-                //display running server
+                
                 var running = ConfigHandler.GetDefaultServer(_config);
                 if (running != null)
                 {
@@ -780,7 +780,7 @@ namespace v2rayN.ViewModels
             var ret = (new OptionSettingWindow()).ShowDialog();
             if (ret == true)
             {
-                //RefreshServers();
+                
                 Reload();
             }
         }
@@ -792,7 +792,7 @@ namespace v2rayN.ViewModels
             {
                 ConfigHandler.InitBuiltinRouting(_config);
                 RefreshRoutingsMenu();
-                //RefreshServers();
+                
                 Reload();
             }
         }
@@ -824,32 +824,32 @@ namespace v2rayN.ViewModels
             catch { }
         }
 
-        //private void ImportOldGuiConfig()
-        //{
-        //    if (UI.OpenFileDialog(out string fileName,
-        //        "guiNConfig|*.json|All|*.*") != true)
-        //    {
-        //        return;
-        //    }
-        //    if (Utils.IsNullOrEmpty(fileName))
-        //    {
-        //        return;
-        //    }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
 
-        //    var ret = ConfigHandler.ImportOldGuiConfig(_config, fileName);
-        //    if (ret == 0)
-        //    {
-        //        RefreshRoutingsMenu();
-        //        InitSubscriptionView();
-        //        RefreshServers();
-        //        Reload();
-        //        _noticeHandler?.Enqueue(ResUI.OperationSuccess);
-        //    }
-        //    else
-        //    {
-        //        _noticeHandler?.Enqueue(ResUI.OperationFailed);
-        //    }
-        //}
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
 
         #endregion Setting
 
@@ -934,7 +934,7 @@ namespace v2rayN.ViewModels
                 var node = ConfigHandler.GetDefaultServer(_config);
                 _coreHandler.LoadCore(node);
 
-                //ConfigHandler.SaveConfig(_config, false);
+                
 
                 ChangeSystemProxyStatus(_config.systemProxyItem.sysProxyType, false);
             });
@@ -1058,7 +1058,7 @@ namespace v2rayN.ViewModels
             if (_config.tunModeItem.enableTun != EnableTun)
             {
                 _config.tunModeItem.enableTun = EnableTun;
-                // When running as a non-administrator, reboot to administrator mode
+                
                 if (EnableTun && !Utils.IsAdministrator())
                 {
                     _config.tunModeItem.enableTun = false;
@@ -1078,7 +1078,7 @@ namespace v2rayN.ViewModels
             var bl = blShow ?? !_showInTaskbar;
             if (bl)
             {
-                //Application.Current.MainWindow.ShowInTaskbar = true;
+                
                 Application.Current.MainWindow.Show();
                 if (Application.Current.MainWindow.WindowState == WindowState.Minimized)
                 {
@@ -1090,9 +1090,9 @@ namespace v2rayN.ViewModels
             else
             {
                 Application.Current.MainWindow.Hide();
-                //Application.Current.MainWindow.ShowInTaskbar = false;
-                //IntPtr windowHandle = new WindowInteropHelper(Application.Current.MainWindow).Handle;
-                //Utile.RegWriteValue(Global.MyRegPath, Utile.WindowHwndKey, Convert.ToString((long)windowHandle));
+                
+                
+                
             }
             _showInTaskbar = bl;
             _config.uiItem.showInTaskbar = _showInTaskbar;
@@ -1223,14 +1223,14 @@ namespace v2rayN.ViewModels
             StringBuilder sb = new();
             sb.Append($"[{EInboundProtocol.socks}:{LazyConfig.Instance.GetLocalPort(EInboundProtocol.socks)}]");
             sb.Append(" | ");
-            //if (_config.systemProxyItem.sysProxyType == ESysProxyType.ForcedChange)
-            //{
-            //    sb.Append($"[{Global.InboundHttp}({ResUI.SystemProxy}):{LazyConfig.Instance.GetLocalPort(Global.InboundHttp)}]");
-            //}
-            //else
-            //{
+            
+            
+            
+            
+            
+            
             sb.Append($"[{EInboundProtocol.http}:{LazyConfig.Instance.GetLocalPort(EInboundProtocol.http)}]");
-            //}
+            
             InboundDisplay = $"{ResUI.LabLocal}:{sb}";
 
             if (_config.inbound[0].allowLANConn)

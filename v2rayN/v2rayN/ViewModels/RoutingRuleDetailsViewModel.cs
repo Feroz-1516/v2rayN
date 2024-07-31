@@ -97,7 +97,7 @@ namespace v2rayN.ViewModels
                 _noticeHandler?.Enqueue(string.Format(ResUI.RoutingRuleDetailRequiredTips, "Port/Protocol/Domain/IP/Process"));
                 return;
             }
-            //_noticeHandler?.Enqueue(ResUI.OperationSuccess);
+            
             _view.DialogResult = true;
         }
     }

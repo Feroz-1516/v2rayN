@@ -47,7 +47,7 @@ namespace v2rayN.Handler
                     configType = it.configType
                 });
             }
-            //clear test result
+            
             foreach (var it in _selecteds)
             {
                 switch (actionType)
@@ -198,10 +198,10 @@ namespace v2rayN.Handler
         private async Task RunSpeedTestAsync()
         {
             int pid = -1;
-            //if (_actionType == ESpeedActionType.Mixedtest)
-            //{
-            //    _selecteds = _selecteds.OrderBy(t => t.delay).ToList();
-            //}
+            
+            
+            
+            
 
             pid = _coreHandler.LoadCoreConfigSpeedtest(_selecteds);
             if (pid < 0)
@@ -241,11 +241,11 @@ namespace v2rayN.Handler
                 {
                     continue;
                 }
-                //if (it.delay < 0)
-                //{
-                //    UpdateFunc(it.indexId, "", ResUI.SpeedtestingSkip);
-                //    continue;
-                //}
+                
+                
+                
+                
+                
                 ProfileExHandler.Instance.SetTestSpeed(it.indexId, "-1");
                 UpdateFunc(it.indexId, "", ResUI.Speedtesting);
 
@@ -361,7 +361,7 @@ namespace v2rayN.Handler
         private async Task<string> GetRealPingTime(DownloadHandle downloadHandle, IWebProxy webProxy)
         {
             int responseTime = await downloadHandle.GetRealPingTime(_config.speedTestItem.speedPingTestUrl, webProxy, 10);
-            //string output = Utile.IsNullOrEmpty(status) ? FormatOut(responseTime, "ms") : status;
+            
             return FormatOut(responseTime, Global.DelayUnit);
         }
 
@@ -399,10 +399,10 @@ namespace v2rayN.Handler
 
         private string FormatOut(object time, string unit)
         {
-            //if (time.ToString().Equals("-1"))
-            //{
-            //    return "Timeout";
-            //}
+            
+            
+            
+            
             return $"{time}";
         }
 

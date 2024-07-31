@@ -6,9 +6,9 @@ using v2rayN.ViewModels;
 
 namespace v2rayN.Views
 {
-    /// <summary>
-    /// Interaction logic for ProxiesView.xaml
-    /// </summary>
+    
+    
+    
     public partial class ClashProxiesView
     {
         public ClashProxiesView()

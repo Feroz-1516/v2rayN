@@ -43,13 +43,13 @@ namespace v2rayN.ViewModels
 
         #region Core KCP
 
-        //[Reactive] public int Kcpmtu { get; set; }
-        //[Reactive] public int Kcptti { get; set; }
-        //[Reactive] public int KcpuplinkCapacity { get; set; }
-        //[Reactive] public int KcpdownlinkCapacity { get; set; }
-        //[Reactive] public int KcpreadBufferSize { get; set; }
-        //[Reactive] public int KcpwriteBufferSize { get; set; }
-        //[Reactive] public bool Kcpcongestion { get; set; }
+        
+        
+        
+        
+        
+        
+        
 
         #endregion Core KCP
 
@@ -142,13 +142,13 @@ namespace v2rayN.ViewModels
 
             #region Core KCP
 
-            //Kcpmtu = _config.kcpItem.mtu;
-            //Kcptti = _config.kcpItem.tti;
-            //KcpuplinkCapacity = _config.kcpItem.uplinkCapacity;
-            //KcpdownlinkCapacity = _config.kcpItem.downlinkCapacity;
-            //KcpreadBufferSize = _config.kcpItem.readBufferSize;
-            //KcpwriteBufferSize = _config.kcpItem.writeBufferSize;
-            //Kcpcongestion = _config.kcpItem.congestion;
+            
+            
+            
+            
+            
+            
+            
 
             #endregion Core KCP
 
@@ -270,18 +270,18 @@ namespace v2rayN.ViewModels
                             || EnableHWA != _config.guiItem.enableHWA
                             || CurrentFontFamily != _config.uiItem.currentFontFamily);
 
-            //if (Utile.IsNullOrEmpty(Kcpmtu.ToString()) || !Utile.IsNumeric(Kcpmtu.ToString())
-            //       || Utile.IsNullOrEmpty(Kcptti.ToString()) || !Utile.IsNumeric(Kcptti.ToString())
-            //       || Utile.IsNullOrEmpty(KcpuplinkCapacity.ToString()) || !Utile.IsNumeric(KcpuplinkCapacity.ToString())
-            //       || Utile.IsNullOrEmpty(KcpdownlinkCapacity.ToString()) || !Utile.IsNumeric(KcpdownlinkCapacity.ToString())
-            //       || Utile.IsNullOrEmpty(KcpreadBufferSize.ToString()) || !Utile.IsNumeric(KcpreadBufferSize.ToString())
-            //       || Utile.IsNullOrEmpty(KcpwriteBufferSize.ToString()) || !Utile.IsNumeric(KcpwriteBufferSize.ToString()))
-            //{
-            //    _noticeHandler?.Enqueue(ResUI.FillKcpParameters);
-            //    return;
-            //}
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
 
-            //Core
+            
             _config.inbound[0].localPort = localPort;
             _config.inbound[0].udpEnabled = udpEnabled;
             _config.inbound[0].sniffingEnabled = sniffingEnabled;
@@ -307,16 +307,16 @@ namespace v2rayN.ViewModels
             _config.hysteriaItem.down_mbps = hyDownMbps;
             _config.coreBasicItem.enableFragment = enableFragment;
 
-            //Kcp
-            //_config.kcpItem.mtu = Kcpmtu;
-            //_config.kcpItem.tti = Kcptti;
-            //_config.kcpItem.uplinkCapacity = KcpuplinkCapacity;
-            //_config.kcpItem.downlinkCapacity = KcpdownlinkCapacity;
-            //_config.kcpItem.readBufferSize = KcpreadBufferSize;
-            //_config.kcpItem.writeBufferSize = KcpwriteBufferSize;
-            //_config.kcpItem.congestion = Kcpcongestion;
+            
+            
+            
+            
+            
+            
+            
+            
 
-            //UI
+            
             Utils.SetAutoRun(Global.AutoRunRegPath, Global.AutoRunName, AutoRun);
             _config.guiItem.autoRun = AutoRun;
             _config.guiItem.enableStatistics = EnableStatistics;
@@ -339,19 +339,19 @@ namespace v2rayN.ViewModels
             _config.constItem.subConvertUrl = SubConvertUrl;
             _config.uiItem.mainGirdOrientation = (EGirdOrientation)MainGirdOrientation;
 
-            //systemProxy
+            
             _config.systemProxyItem.systemProxyExceptions = systemProxyExceptions;
             _config.systemProxyItem.notProxyLocalAddress = notProxyLocalAddress;
             _config.systemProxyItem.systemProxyAdvancedProtocol = systemProxyAdvancedProtocol;
 
-            //tun mode
+            
             _config.tunModeItem.strictRoute = TunStrictRoute;
             _config.tunModeItem.stack = TunStack;
             _config.tunModeItem.mtu = TunMtu;
             _config.tunModeItem.enableExInbound = TunEnableExInbound;
             _config.tunModeItem.enableIPv6Address = TunEnableIPv6Address;
 
-            //coreType
+            
             SaveCoreType();
 
             if (ConfigHandler.SaveConfig(_config) == 0)

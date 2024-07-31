@@ -11,9 +11,7 @@ using ZXing.Windows.Compatibility;
 
 namespace v2rayN
 {
-    /// <summary>
-    /// 含有QR码的描述类和包装编码和渲染
-    /// </summary>
+
     public class QRCodeHelper
     {
         public static DrawingImage? GetQRCode(string? strContent)

@@ -36,13 +36,13 @@ namespace v2rayN.Handler.Fmt
             {
                 remark = "#" + Utils.UrlEncode(item.remarks);
             }
-            //url = string.Format("{0}:{1}@{2}:{3}",
-            //    item.security,
-            //    item.id,
-            //    item.address,
-            //    item.port);
-            //url = Utile.Base64Encode(url);
-            //new
+            
+            
+            
+            
+            
+            
+            
             var pw = Utils.Base64Encode($"{item.security}:{item.id}");
             url = $"{pw}@{GetIpv6(item.address)}:{item.port}";
             url = $"{Global.ProtocolShares[EConfigType.Socks]}{url}{remark}";
@@ -56,7 +56,7 @@ namespace v2rayN.Handler.Fmt
                 configType = EConfigType.Socks
             };
             result = result[Global.ProtocolShares[EConfigType.Socks].Length..];
-            //remark
+            
             int indexRemark = result.IndexOf("#");
             if (indexRemark > 0)
             {
@@ -67,7 +67,7 @@ namespace v2rayN.Handler.Fmt
                 catch { }
                 result = result[..indexRemark];
             }
-            //part decode
+            
             int indexS = result.IndexOf("@");
             if (indexS > 0)
             {
@@ -83,7 +83,7 @@ namespace v2rayN.Handler.Fmt
                 return null;
             }
             string[] arr21 = arr1[0].Split(':');
-            //string[] arr22 = arr1[1].Split(':');
+            
             int indexPort = arr1[1].LastIndexOf(":");
             if (arr21.Length != 2 || indexPort < 0)
             {
@@ -115,7 +115,7 @@ namespace v2rayN.Handler.Fmt
                 port = parsedUrl.Port,
             };
 
-            // parse base64 UserInfo
+            
             string rawUserInfo = parsedUrl.GetComponents(UriComponents.UserInfo, UriFormat.Unescaped);
             string userInfo = Utils.Base64Decode(rawUserInfo);
             string[] userInfoParts = userInfo.Split(new[] { ':' }, 2);

@@ -57,12 +57,12 @@ namespace v2rayN.Views
 
         private void linkDnsObjectDoc_Click(object sender, RoutedEventArgs e)
         {
-            Utils.ProcessStart("https://xtls.github.io/config/dns.html#dnsobject");
+            Utils.ProcessStart("https:
         }
 
         private void linkDnsSingboxObjectDoc_Click(object sender, RoutedEventArgs e)
         {
-            Utils.ProcessStart("https://sing-box.sagernet.org/zh/configuration/dns/");
+            Utils.ProcessStart("https:
         }
     }
 }

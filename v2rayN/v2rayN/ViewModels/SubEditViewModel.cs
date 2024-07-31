@@ -76,7 +76,7 @@ namespace v2rayN.ViewModels
             {
                 _noticeHandler?.Enqueue(ResUI.OperationSuccess);
                 _view.DialogResult = true;
-                //_view?.Close();
+                
             }
             else
             {

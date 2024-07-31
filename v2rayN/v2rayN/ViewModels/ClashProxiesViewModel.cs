@@ -187,7 +187,7 @@ namespace v2rayN.ViewModels
         {
             ClashApiHandler.Instance.GetClashProxies(_config, (it, it2) =>
             {
-                //UpdateHandler(false, "Refresh Clash Proxies");
+                
                 proxies = it?.proxies;
                 providers = it2?.providers;
 
@@ -234,7 +234,7 @@ namespace v2rayN.ViewModels
                 }
             }
 
-            //from api
+            
             foreach (KeyValuePair<string, ProxiesItem> kv in proxies)
             {
                 if (!Global.allowSelectType.Contains(kv.Value.type.ToLower()))
@@ -318,7 +318,7 @@ namespace v2rayN.ViewModels
                     delayName = delay <= 0 ? string.Empty : $"{delay}ms",
                 });
             }
-            //sort
+            
             switch (SortingSelected)
             {
                 case 0:
@@ -344,7 +344,7 @@ namespace v2rayN.ViewModels
             {
                 return proxy2;
             }
-            //from providers
+            
             if (providers != null)
             {
                 foreach (KeyValuePair<string, ProvidersItem> kv in providers)
@@ -401,19 +401,19 @@ namespace v2rayN.ViewModels
 
                 SelectedGroup = group2;
 
-                //var index = _proxyGroups.IndexOf(group);
-                //_proxyGroups.Remove(group);
-                //_proxyGroups.Insert(index, group);
+                
+                
+                
             }
             _noticeHandler?.Enqueue(ResUI.OperationSuccess);
 
-            //RefreshProxyDetails(true);
-            //GetClashProxies(true);
+            
+            
         }
 
         private void ProxiesDelayTest(bool blAll)
         {
-            //UpdateHandler(false, "Clash Proxies Latency Test");
+            
 
             ClashApiHandler.Instance.ClashProxiesDelayTest(blAll, _proxyDetails.ToList(), (item, result) =>
             {
@@ -428,7 +428,7 @@ namespace v2rayN.ViewModels
                 }
                 Application.Current?.Dispatcher.Invoke((Action)(() =>
                 {
-                    //UpdateHandler(false, $"{item.name}={result}");
+                    
                     var detail = _proxyDetails.Where(it => it.name == item.name).FirstOrDefault();
                     if (detail != null)
                     {

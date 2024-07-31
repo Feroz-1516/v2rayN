@@ -6,8 +6,7 @@ using System.Text;
 
 namespace v2rayN
 {
-    /// <summary>
-    /// </summary>
+    
     public class HttpClientHelper
     {
         private static readonly Lazy<HttpClientHelper> _instance = new(() =>
@@ -105,7 +104,6 @@ namespace v2rayN
                 if (canReportProgress)
                 {
                     var percent = (int)(100.0 * totalRead / total);
-                    //if (progressPercentage != percent && percent % 10 == 0)
                     {
                         progressPercentage = percent;
                         progress?.Report(percent);
@@ -132,9 +130,7 @@ namespace v2rayN
                 throw new Exception(response.StatusCode.ToString());
             }
 
-            //var total = response.Content.Headers.ContentLength.HasValue ? response.Content.Headers.ContentLength.Value : -1L;
-            //var canReportProgress = total != -1 && progress != null;
-
+  
             using var stream = await response.Content.ReadAsStreamAsync(token);
             var totalRead = 0L;
             var buffer = new byte[1024 * 64];

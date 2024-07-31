@@ -3,10 +3,7 @@ using System.Runtime.InteropServices;
 
 namespace v2rayN
 {
-    /*
-     * See:
-     * http://stackoverflow.com/questions/6266820/working-example-of-createjobobject-setinformationjobobject-pinvoke-in-net
-     */
+   
 
     public class Job : IDisposable
     {
@@ -80,7 +77,6 @@ namespace v2rayN
 
             if (disposing)
             {
-                // no managed objects to free
             }
 
             if (handle != IntPtr.Zero)

@@ -9,9 +9,9 @@ using v2rayN.Resx;
 
 namespace v2rayN.Handler
 {
-    /// <summary>
-    ///Download
-    /// </summary>
+    
+    
+    
     internal class DownloadHandle
     {
         public event EventHandler<ResultEventArgs>? UpdateCompleted;
@@ -177,10 +177,10 @@ namespace v2rayN.Handler
             return null;
         }
 
-        /// <summary>
-        /// DownloadString
-        /// </summary>
-        /// <param name="url"></param>
+        
+        
+        
+        
         public async Task<string?> DownloadStringAsync(string url, bool blProxy, string userAgent)
         {
             try
@@ -200,7 +200,7 @@ namespace v2rayN.Handler
                 client.DefaultRequestHeaders.UserAgent.TryParseAdd(userAgent);
 
                 Uri uri = new(url);
-                //Authorization Header
+                
                 if (!Utils.IsNullOrEmpty(uri.UserInfo))
                 {
                     client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", Utils.Base64Encode(uri.UserInfo));
@@ -222,10 +222,10 @@ namespace v2rayN.Handler
             return null;
         }
 
-        /// <summary>
-        /// DownloadString
-        /// </summary>
-        /// <param name="url"></param>
+        
+        
+        
+        
         public async Task<string?> DownloadStringViaDownloader(string url, bool blProxy, string userAgent)
         {
             try
@@ -305,9 +305,9 @@ namespace v2rayN.Handler
                 }
                 responseTime = oneTime.Where(x => x > 0).OrderBy(x => x).FirstOrDefault();
             }
-            catch //(Exception ex)
+            catch 
             {
-                //Utile.SaveLog(ex.Message, ex);
+                
             }
             return responseTime;
         }

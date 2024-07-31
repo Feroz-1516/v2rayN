@@ -2,9 +2,9 @@
 
 namespace v2rayN.Models
 {
-    /// <summary>
-    /// https://github.com/2dust/v2rayN/wiki/
-    /// </summary>
+    
+    
+    
     [Serializable]
     internal class VmessQRCode
     {

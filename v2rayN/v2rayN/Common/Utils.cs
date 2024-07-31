@@ -25,11 +25,6 @@ namespace v2rayN
     {
         #region 资源Json操作
 
-        /// <summary>
-        /// 获取嵌入文本资源
-        /// </summary>
-        /// <param name="res"></param>
-        /// <returns></returns>
         public static string GetEmbedText(string res)
         {
             string result = string.Empty;
@@ -49,10 +44,6 @@ namespace v2rayN
             return result;
         }
 
-        /// <summary>
-        /// 取得存储资源
-        /// </summary>
-        /// <returns></returns>
         public static string? LoadResource(string? res)
         {
             try
@@ -74,11 +65,7 @@ namespace v2rayN
 
         #region 转换函数
 
-        /// <summary>
-        /// List<string>转逗号分隔的字符串
-        /// </summary>
-        /// <param name="lst"></param>
-        /// <returns></returns>
+
         public static string List2String(List<string>? lst, bool wrap = false)
         {
             try
@@ -103,11 +90,7 @@ namespace v2rayN
             }
         }
 
-        /// <summary>
-        /// 逗号分隔的字符串,转List<string>
-        /// </summary>
-        /// <param name="str"></param>
-        /// <returns></returns>
+   
         public static List<string> String2List(string str)
         {
             try
@@ -122,11 +105,6 @@ namespace v2rayN
             }
         }
 
-        /// <summary>
-        /// 逗号分隔的字符串,先排序后转List<string>
-        /// </summary>
-        /// <param name="str"></param>
-        /// <returns></returns>
         public static List<string> String2ListSorted(string str)
         {
             try
@@ -143,11 +121,11 @@ namespace v2rayN
             }
         }
 
-        /// <summary>
-        /// Base64编码
-        /// </summary>
-        /// <param name="plainText"></param>
-        /// <returns></returns>
+        
+        
+        
+        
+        
         public static string Base64Encode(string plainText)
         {
             try
@@ -162,11 +140,11 @@ namespace v2rayN
             }
         }
 
-        /// <summary>
-        /// Base64解码
-        /// </summary>
-        /// <param name="plainText"></param>
-        /// <returns></returns>
+        
+        
+        
+        
+        
         public static string Base64Decode(string plainText)
         {
             try
@@ -194,20 +172,20 @@ namespace v2rayN
             }
         }
 
-        /// <summary>
-        /// 转Int
-        /// </summary>
-        /// <param name="obj"></param>
-        /// <returns></returns>
+        
+        
+        
+        
+        
         public static int ToInt(object? obj)
         {
             try
             {
                 return Convert.ToInt32(obj ?? string.Empty);
             }
-            catch //(Exception ex)
+            catch 
             {
-                //SaveLog(ex.Message, ex);
+                
                 return 0;
             }
         }
@@ -218,9 +196,9 @@ namespace v2rayN
             {
                 return Convert.ToBoolean(obj);
             }
-            catch //(Exception ex)
+            catch 
             {
-                //SaveLog(ex.Message, ex);
+                
                 return false;
             }
         }
@@ -231,36 +209,36 @@ namespace v2rayN
             {
                 return obj?.ToString() ?? string.Empty;
             }
-            catch// (Exception ex)
+            catch
             {
-                //SaveLog(ex.Message, ex);
+                
                 return string.Empty;
             }
         }
 
-        /// <summary>
-        /// byte 转成 有两位小数点的 方便阅读的数据
-        ///     比如 2.50 MB
-        /// </summary>
-        /// <param name="amount">bytes</param>
-        /// <param name="result">转换之后的数据</param>
-        /// <param name="unit">单位</param>
+        
+        
+        
+        
+        
+        
+        
         public static void ToHumanReadable(long amount, out double result, out string unit)
         {
             uint factor = 1024u;
-            //long KBs = amount / factor;
+            
             long KBs = amount;
             if (KBs > 0)
             {
-                // multi KB
+                
                 long MBs = KBs / factor;
                 if (MBs > 0)
                 {
-                    // multi MB
+                    
                     long GBs = MBs / factor;
                     if (GBs > 0)
                     {
-                        // multi GB
+                        
                         long TBs = GBs / factor;
                         if (TBs > 0)
                         {
@@ -296,13 +274,13 @@ namespace v2rayN
         public static string UrlEncode(string url)
         {
             return Uri.EscapeDataString(url);
-            //return  HttpUtility.UrlEncode(url);
+            
         }
 
         public static string UrlDecode(string url)
         {
             return Uri.UnescapeDataString(url);
-            //return HttpUtility.UrlDecode(url);
+            
         }
 
         public static NameValueCollection ParseQueryString(string query)
@@ -353,11 +331,11 @@ namespace v2rayN
                 BitmapSizeOptions.FromEmptyOptions());
         }
 
-        /// <summary>
-        /// idn to idc
-        /// </summary>
-        /// <param name="url"></param>
-        /// <returns></returns>
+        
+        
+        
+        
+        
         public static string GetPunycode(string url)
         {
             if (Utils.IsNullOrEmpty(url))
@@ -401,11 +379,11 @@ namespace v2rayN
 
         #region 数据检查
 
-        /// <summary>
-        /// 判断输入的是否是数字
-        /// </summary>
-        /// <param name="oText"></param>
-        /// <returns></returns>
+        
+        
+        
+        
+        
         public static bool IsNumeric(string oText)
         {
             try
@@ -420,11 +398,11 @@ namespace v2rayN
             }
         }
 
-        /// <summary>
-        /// 文本
-        /// </summary>
-        /// <param name="text"></param>
-        /// <returns></returns>
+        
+        
+        
+        
+        
         public static bool IsNullOrEmpty(string? text)
         {
             if (string.IsNullOrWhiteSpace(text))
@@ -438,21 +416,21 @@ namespace v2rayN
             return false;
         }
 
-        /// <summary>
-        /// 验证IP地址是否合法
-        /// </summary>
-        /// <param name="ip"></param>
+        
+        
+        
+        
         public static bool IsIP(string ip)
         {
-            //如果为空
+            
             if (IsNullOrEmpty(ip))
             {
                 return false;
             }
 
-            //清除要验证字符串中的空格
-            //ip = ip.TrimEx();
-            //可能是CIDR
+            
+            
+            
             if (ip.IndexOf(@"/") > 0)
             {
                 string[] cidr = ip.Split('/');
@@ -466,20 +444,20 @@ namespace v2rayN
                 }
             }
 
-            //模式字符串
+            
             string pattern = @"^((2[0-4]\d|25[0-5]|[01]?\d\d?)\.){3}(2[0-4]\d|25[0-5]|[01]?\d\d?)$";
 
-            //验证
+            
             return IsMatch(ip, pattern);
         }
 
-        /// <summary>
-        /// 验证Domain地址是否合法
-        /// </summary>
-        /// <param name="domain"></param>
+        
+        
+        
+        
         public static bool IsDomain(string? domain)
         {
-            //如果为空
+            
             if (IsNullOrEmpty(domain))
             {
                 return false;
@@ -488,11 +466,11 @@ namespace v2rayN
             return Uri.CheckHostName(domain) == UriHostNameType.Dns;
         }
 
-        /// <summary>
-        /// 验证输入字符串是否与模式字符串匹配，匹配返回true
-        /// </summary>
-        /// <param name="input">输入字符串</param>
-        /// <param name="pattern">模式字符串</param>
+        
+        
+        
+        
+        
         public static bool IsMatch(string input, string pattern)
         {
             return Regex.IsMatch(input, pattern, RegexOptions.IgnoreCase);
@@ -516,28 +494,28 @@ namespace v2rayN
 
         #region 测速
 
-        /// <summary>
-        /// 取得本机 IP Address
-        /// </summary>
-        /// <returns></returns>
-        //public static List<string> GetHostIPAddress()
-        //{
-        //    List<string> lstIPAddress = new List<string>();
-        //    try
-        //    {
-        //        IPHostEntry IpEntry = Dns.GetHostEntry(Dns.GetHostName());
-        //        foreach (IPAddress ipa in IpEntry.AddressList)
-        //        {
-        //            if (ipa.AddressFamily == AddressFamily.InterNetwork)
-        //                lstIPAddress.Add(ipa.ToString());
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        SaveLog(ex.Message, ex);
-        //    }
-        //    return lstIPAddress;
-        //}
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
 
         public static void SetSecurityProtocol(bool enableSecurityProtocolTls13)
         {
@@ -603,10 +581,10 @@ namespace v2rayN
 
         #region 杂项
 
-        /// <summary>
-        /// 取得版本
-        /// </summary>
-        /// <returns></returns>
+        
+        
+        
+        
         public static string GetVersion(bool blFull = true)
         {
             try
@@ -631,10 +609,10 @@ namespace v2rayN
             }
         }
 
-        /// <summary>
-        /// 获取剪贴板数
-        /// </summary>
-        /// <returns></returns>
+        
+        
+        
+        
         public static string? GetClipboardData()
         {
             string? strData = string.Empty;
@@ -654,10 +632,10 @@ namespace v2rayN
             return strData;
         }
 
-        /// <summary>
-        /// 拷贝至剪贴板
-        /// </summary>
-        /// <returns></returns>
+        
+        
+        
+        
         public static void SetClipboardData(string strData)
         {
             try
@@ -669,10 +647,10 @@ namespace v2rayN
             }
         }
 
-        /// <summary>
-        /// 取得GUID
-        /// </summary>
-        /// <returns></returns>
+        
+        
+        
+        
         public static string GetGUID(bool full = true)
         {
             try
@@ -693,17 +671,17 @@ namespace v2rayN
             return string.Empty;
         }
 
-        /// <summary>
-        /// IsAdministrator
-        /// </summary>
-        /// <returns></returns>
+        
+        
+        
+        
         public static bool IsAdministrator()
         {
             try
             {
                 WindowsIdentity current = WindowsIdentity.GetCurrent();
                 WindowsPrincipal windowsPrincipal = new WindowsPrincipal(current);
-                //WindowsBuiltInRole可以枚举出很多权限，例如系统用户、User、Guest等等
+                
                 return windowsPrincipal.IsInRole(WindowsBuiltInRole.Administrator);
             }
             catch (Exception ex)
@@ -730,8 +708,8 @@ namespace v2rayN
                 .SelectMany(n => n.GetIPProperties()?.GatewayAddresses)
                 .Select(g => g?.Address)
                 .Where(a => a != null)
-                // .Where(a => a.AddressFamily == AddressFamily.InterNetwork)
-                // .Where(a => Array.FindIndex(a.GetAddressBytes(), b => b != 0) >= 0)
+                
+                
                 .FirstOrDefault();
         }
 
@@ -754,7 +732,7 @@ namespace v2rayN
 
         public static void SetDarkBorder(System.Windows.Window window, bool dark)
         {
-            // Make sure the handle is created before the window is shown
+            
             IntPtr hWnd = new System.Windows.Interop.WindowInteropHelper(window).EnsureHandle();
             int attribute = dark ? 1 : 0;
             uint attributeSize = (uint)Marshal.SizeOf(attribute);
@@ -769,10 +747,10 @@ namespace v2rayN
             return value is int i && i > 0;
         }
 
-        /// <summary>
-        /// 获取系统hosts
-        /// </summary>
-        /// <returns></returns>
+        
+        
+        
+        
         public static Dictionary<string, string> GetSystemHosts()
         {
             var systemHosts = new Dictionary<string, string>();
@@ -804,10 +782,10 @@ namespace v2rayN
 
         #region TempPath
 
-        /// <summary>
-        /// 获取启动了应用程序的可执行文件的路径
-        /// </summary>
-        /// <returns></returns>
+        
+        
+        
+        
         public static string GetPath(string fileName)
         {
             string startupPath = StartupPath();
@@ -818,10 +796,10 @@ namespace v2rayN
             return Path.Combine(startupPath, fileName);
         }
 
-        /// <summary>
-        /// 获取启动了应用程序的可执行文件的路径及文件名
-        /// </summary>
-        /// <returns></returns>
+        
+        
+        
+        
         public static string GetExePath()
         {
             return Environment.ProcessPath ?? string.Empty;
@@ -948,18 +926,18 @@ namespace v2rayN
 
         #region 开机自动启动等
 
-        /// <summary>
-        /// 开机自动启动
-        /// </summary>
-        /// <param name="run"></param>
-        /// <returns></returns>
+        
+        
+        
+        
+        
         public static void SetAutoRun(string AutoRunRegPath, string AutoRunName, bool run)
         {
             try
             {
                 var autoRunName = $"{AutoRunName}_{GetMD5(StartupPath())}";
 
-                //delete first
+                
                 RegWriteValue(AutoRunRegPath, autoRunName, "");
                 if (IsAdministrator())
                 {
@@ -1037,13 +1015,13 @@ namespace v2rayN
             }
         }
 
-        /// <summary>
-        /// Auto Start via TaskService
-        /// </summary>
-        /// <param name="taskName"></param>
-        /// <param name="fileName"></param>
-        /// <param name="description"></param>
-        /// <exception cref="ArgumentNullException"></exception>
+        
+        
+        
+        
+        
+        
+        
         public static void AutoStart(string taskName, string fileName, string description)
         {
             if (Utils.IsNullOrEmpty(taskName))
@@ -1089,7 +1067,7 @@ namespace v2rayN
                 string pnputilPath = @"C:\Windows\System32\pnputil.exe";
                 string arg = $$""" /remove-device  "SWD\Wintun\{{{guid}}}" """;
 
-                // Try to remove the device
+                
                 Process proc = new()
                 {
                     StartInfo = new()

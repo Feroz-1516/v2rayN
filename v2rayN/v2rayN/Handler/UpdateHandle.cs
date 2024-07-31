@@ -182,7 +182,7 @@ namespace v2rayN.Handler
                     string hashCode = $"{item.remarks}->";
                     if (Utils.IsNullOrEmpty(id) || Utils.IsNullOrEmpty(url) || (!Utils.IsNullOrEmpty(subId) && item.id != subId))
                     {
-                        //_updateFunc(false, $"{hashCode}{ResUI.MsgNoValidSubscription}");
+                        
                         continue;
                     }
                     if (!url.StartsWith(Global.HttpsProtocol) && !url.StartsWith(Global.HttpProtocol))
@@ -203,9 +203,9 @@ namespace v2rayN.Handler
 
                     _updateFunc(false, $"{hashCode}{ResUI.MsgStartGettingSubscriptions}");
 
-                    //one url
+                    
                     url = Utils.GetPunycode(url);
-                    //convert
+                    
                     if (!Utils.IsNullOrEmpty(item.convertTarget))
                     {
                         var subConvertUrl = Utils.IsNullOrEmpty(config.constItem.subConvertUrl) ? Global.SubConvertUrls.FirstOrDefault() : config.constItem.subConvertUrl;
@@ -225,7 +225,7 @@ namespace v2rayN.Handler
                         result = await downloadHandle.TryDownloadString(url, false, userAgent);
                     }
 
-                    //more url
+                    
                     if (Utils.IsNullOrEmpty(item.convertTarget) && !Utils.IsNullOrEmpty(item.moreUrl.TrimEx()))
                     {
                         if (!Utils.IsNullOrEmpty(result) && Utils.IsBase64String(result!))
@@ -340,9 +340,9 @@ namespace v2rayN.Handler
             }
         }
 
-        /// <summary>
-        /// 获取V2RayCore版本
-        /// </summary>
+        
+        
+        
         private SemanticVersion GetCoreVersion(ECoreType type)
         {
             try
@@ -363,7 +363,7 @@ namespace v2rayN.Handler
                 if (!File.Exists(filePath))
                 {
                     string msg = string.Format(ResUI.NotFoundCore, @"", "", "");
-                    //ShowMsg(true, msg);
+                    
                     return new SemanticVersion("");
                 }
 
@@ -571,16 +571,16 @@ namespace v2rayN.Handler
                         string fileName = Utils.GetTempPath(Utils.GetDownloadFileName(url));
                         if (File.Exists(fileName))
                         {
-                            //Global.coreTypes.ForEach(it =>
-                            //{
-                            //    string targetPath = Utile.GetBinPath($"{geoName}.dat", (ECoreType)Enum.Parse(typeof(ECoreType), it));
-                            //    File.Copy(fileName, targetPath, true);
-                            //});
+                            
+                            
+                            
+                            
+                            
                             string targetPath = Utils.GetBinPath($"{geoName}.dat");
                             File.Copy(fileName, targetPath, true);
 
                             File.Delete(fileName);
-                            //_updateFunc(true, "");
+                            
                         }
                     }
                     catch (Exception ex)
